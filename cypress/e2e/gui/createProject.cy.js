@@ -6,15 +6,15 @@ describe('Create Project', () => {
   })
 
   it('successfully', () => {
-    const creantionProjetic = {
-      name: `creantionProjetic-${faker.datatype.uuid()}`,
-      description: faker.random.words(5)
+    const project = {
+      name: `project-${faker.datatype.uuid()}`,
+      description: faker.random.words(5),
     }
 
-    cy.gui_createProject(creantionProjetic)
+    cy.gui_createProject(project)
 
     //cy.url().should('be.equal', `${Cypress.config('baseUrl')}/${Cypress.env('user_name')}/${creantionProjetic.name}`)
-    cy.contains(creantionProjetic.name).should('be.visible')
-    cy.contains(creantionProjetic.description).should('be.visible')
+    cy.contains(project.name).should('be.visible')
+    cy.contains(project.description).should('be.visible')
   })
 })
