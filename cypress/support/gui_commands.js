@@ -40,11 +40,20 @@ Cypress.Commands.add('logout', () => {
   logout()
 })
 
-Cypress.Commands.add('gui_createProject', creantionProjetic => {
+Cypress.Commands.add('gui_createProject', project => {
   cy.visit('/projects/new')
 
-  cy.get('#project_name').type(creantionProjetic.name)
-  cy.get('#project_description').type(creantionProjetic.description)
+  cy.get('#project_name').type(project.name)
+  cy.get('#project_description').type(project.description)
   cy.get('.qa-initialize-with-readme-checkbox').check()
   cy.contains('Create project').click()
+})
+
+Cypress.Commands.add('gui_createIssue', issue => {
+  cy.visit(`/${Cypress.env('user_name')}/${issue.project.name}/issues/new`)
+
+  cy.get('#issue_title').type(issue.title)
+  cy.get('#issue_description').type(issue.description)
+  cy.get('[data-disable-with="Submit issue"]').click()
+
 })
