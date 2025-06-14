@@ -1,4 +1,4 @@
-import { Faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 
 describe('Create Issue', () => {
 
